@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-white antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-light rounded-2xl p-4 border border-white/5;
+  }
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-medium py-2 px-4 rounded-xl transition-colors;
+  }
+  .btn-secondary {
+    @apply bg-surface-lighter hover:bg-white/10 text-white font-medium py-2 px-4 rounded-xl transition-colors border border-white/10;
+  }
+}
