@@ -1,15 +1,17 @@
 import express from 'express';
 import cors from 'cors';
-import activityRoutes from './routes/activity';
-import analyticsRoutes from './routes/analytics';
-import scheduleRoutes from './routes/schedule';
+import { syncRouter } from './routes/sync.js';
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '5mb' }));
 
-app.use('/api', activityRoutes);
-app.use('/api', analyticsRoutes);
-app.use('/api', scheduleRoutes);
+// Health check
+app.get('/api/health', (_req, res) => {
+  res.json({ status: 'ok', timestamp: Date.now() });
+});
+
+// Sync routes
+app.use('/api/sync', syncRouter);
 
 export default app;

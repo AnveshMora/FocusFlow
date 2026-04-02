@@ -1,6 +1,8 @@
 import { Outlet, NavLink } from 'react-router-dom';
 import { Home, Timer, BarChart3, Calendar, Flame } from 'lucide-react';
 import { useActivityStore } from '../store/activityStore';
+import { useSync } from '../hooks/useSync';
+import type { SyncStatus } from '../services/syncService';
 
 const navItems = [
   { to: '/', icon: Home, label: 'Home' },
@@ -9,8 +11,23 @@ const navItems = [
   { to: '/schedule', icon: Calendar, label: 'Schedule' },
 ];
 
+const syncColors: Record<SyncStatus, string> = {
+  synced: 'bg-green-500',
+  syncing: 'bg-yellow-500 animate-pulse',
+  offline: 'bg-white/20',
+  error: 'bg-red-500',
+};
+
+const syncLabels: Record<SyncStatus, string> = {
+  synced: 'Synced',
+  syncing: 'Syncing…',
+  offline: 'Offline',
+  error: 'Sync error',
+};
+
 export default function Layout() {
   const todayLog = useActivityStore((s) => s.getTodayLog());
+  const { status: syncStatus, syncNow } = useSync();
 
   return (
     <div className="flex flex-col min-h-screen max-w-md mx-auto relative">
@@ -20,8 +37,18 @@ export default function Layout() {
           <Flame className="w-6 h-6 text-orange-400" />
           <span className="font-bold text-lg">FocusFlow</span>
         </div>
-        <div className="text-sm text-white/60">
-          {todayLog.completionPercent}% done
+        <div className="flex items-center gap-3">
+          <button
+            onClick={syncNow}
+            className="flex items-center gap-1.5 text-[10px] text-white/40 hover:text-white/60 transition-colors"
+            title={syncLabels[syncStatus]}
+          >
+            <span className={`w-2 h-2 rounded-full ${syncColors[syncStatus]}`} />
+            {syncLabels[syncStatus]}
+          </button>
+          <span className="text-sm text-white/60">
+            {todayLog.completionPercent}% done
+          </span>
         </div>
       </header>
 

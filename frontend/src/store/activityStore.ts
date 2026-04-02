@@ -352,7 +352,7 @@ export const useActivityStore = create<ActivityStore>()(
             };
           }
           const activities = day.activities.map((a) =>
-            a.id === activityId ? { ...a, status } : a
+            a.id === activityId ? { ...a, status, updatedAt: Date.now() } : a
           );
           return {
             days: {
@@ -378,7 +378,7 @@ export const useActivityStore = create<ActivityStore>()(
               [key]: {
                 ...day,
                 activities: day.activities.map((a) =>
-                  a.id === activityId ? { ...a, notes } : a
+                  a.id === activityId ? { ...a, notes, updatedAt: Date.now() } : a
                 ),
               },
             },
@@ -400,6 +400,7 @@ export const useActivityStore = create<ActivityStore>()(
                   a.id === activityId
                     ? {
                         ...a,
+                        updatedAt: Date.now(),
                         checklist: a.checklist?.map((c) =>
                           c.id === checklistId ? { ...c, done: !c.done } : c
                         ),
@@ -423,7 +424,7 @@ export const useActivityStore = create<ActivityStore>()(
               [key]: {
                 ...day,
                 activities: day.activities.map((a) =>
-                  a.id === activityId ? { ...a, ...updates } : a
+                  a.id === activityId ? { ...a, ...updates, updatedAt: Date.now() } : a
                 ),
               },
             },

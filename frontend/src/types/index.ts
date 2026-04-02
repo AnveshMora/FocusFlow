@@ -17,6 +17,7 @@ export interface Activity {
   instructions?: string;
   notes?: string;
   checklist?: ActivityChecklist[];
+  updatedAt?: number; // epoch ms — used for sync conflict resolution
 }
 
 export interface DayLog {
@@ -24,6 +25,7 @@ export interface DayLog {
   activities: Activity[];
   completionPercent: number;
   scheduleModified: boolean;
+  lastSyncedAt?: number; // epoch ms
 }
 
 export interface Streak {

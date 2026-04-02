@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1a1a2e"/>
+  <circle cx="256" cy="240" r="120" fill="none" stroke="#6366f1" stroke-width="24" stroke-linecap="round" stroke-dasharray="600 155"/>
+  <text x="256" y="260" text-anchor="middle" font-size="100" font-family="system-ui" font-weight="bold" fill="white">🔥</text>
+  <text x="256" y="420" text-anchor="middle" font-size="60" font-family="system-ui" font-weight="bold" fill="#6366f1">FF</text>
+</svg>
