@@ -57,9 +57,16 @@ export function writeState(state: SyncState): void {
  * For each day, for each activity: the one with the later updatedAt wins.
  */
 export function mergeStates(server: SyncState, client: SyncState): SyncState {
+  // Pick settings with the later updatedAt timestamp
+  const serverSettingsTime = (server.settings as any)?.updatedAt ?? 0;
+  const clientSettingsTime = (client.settings as any)?.updatedAt ?? 0;
+  const mergedSettings = clientSettingsTime >= serverSettingsTime
+    ? (client.settings ?? server.settings)
+    : (server.settings ?? client.settings);
+
   const merged: SyncState = {
     days: { ...server.days },
-    settings: client.settings ?? server.settings,
+    settings: mergedSettings,
     scheduleVersion: Math.max(
       server.scheduleVersion ?? 0,
       client.scheduleVersion ?? 0

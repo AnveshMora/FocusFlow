@@ -54,7 +54,11 @@ export interface UserSettings {
   pomodoroBreak: number;     // minutes
   checkpointInterval: number; // minutes
   maxScheduleShift: number;  // minutes
+  notificationsEnabled: boolean;
+  soundEnabled: boolean;
+  vibrationEnabled: boolean;
   rewards: RewardSettings;
+  updatedAt?: number;
 }
 
 export interface TimerState {
@@ -64,6 +68,9 @@ export interface TimerState {
   totalTime: number;    // seconds
   mode: 'work' | 'break';
   sessionsCompleted: number;
+  startedAt: number | null;       // epoch ms when timer started/resumed
+  pausedAt: number | null;        // epoch ms when timer was paused
+  accumulatedPause: number;       // total pause duration in ms
 }
 
 export interface CheckpointPrompt {

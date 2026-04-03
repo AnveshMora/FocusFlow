@@ -17,6 +17,9 @@ export const useTimerStore = create<TimerStore>()((set, get) => ({
   totalTime: 25 * 60,
   mode: 'work',
   sessionsCompleted: 0,
+  startedAt: null,
+  pausedAt: null,
+  accumulatedPause: 0,
 
   start: (totalSeconds, mode) => {
     set({
@@ -25,15 +28,25 @@ export const useTimerStore = create<TimerStore>()((set, get) => ({
       timeLeft: totalSeconds,
       totalTime: totalSeconds,
       mode,
+      startedAt: Date.now(),
+      pausedAt: null,
+      accumulatedPause: 0,
     });
   },
 
   pause: () => {
-    set({ isPaused: true, isRunning: false });
+    set({ isPaused: true, isRunning: false, pausedAt: Date.now() });
   },
 
   resume: () => {
-    set({ isPaused: false, isRunning: true });
+    const { pausedAt, accumulatedPause } = get();
+    const additionalPause = pausedAt ? Date.now() - pausedAt : 0;
+    set({
+      isPaused: false,
+      isRunning: true,
+      pausedAt: null,
+      accumulatedPause: accumulatedPause + additionalPause,
+    });
   },
 
   reset: () => {
@@ -41,21 +54,37 @@ export const useTimerStore = create<TimerStore>()((set, get) => ({
       isRunning: false,
       isPaused: false,
       timeLeft: get().totalTime,
+      startedAt: null,
+      pausedAt: null,
+      accumulatedPause: 0,
     });
   },
 
   tick: () => {
-    const { timeLeft } = get();
-    if (timeLeft <= 0) return;
-    set({ timeLeft: timeLeft - 1 });
+    const { startedAt, accumulatedPause, totalTime } = get();
+    if (!startedAt) return;
+    const elapsed = Date.now() - startedAt - accumulatedPause;
+    const remaining = Math.max(0, totalTime - Math.floor(elapsed / 1000));
+    set({ timeLeft: remaining });
   },
 
   completeSession: () => {
     const { mode, sessionsCompleted } = get();
     if (mode === 'work') {
-      set({ sessionsCompleted: sessionsCompleted + 1, isRunning: false });
+      set({
+        sessionsCompleted: sessionsCompleted + 1,
+        isRunning: false,
+        startedAt: null,
+        pausedAt: null,
+        accumulatedPause: 0,
+      });
     } else {
-      set({ isRunning: false });
+      set({
+        isRunning: false,
+        startedAt: null,
+        pausedAt: null,
+        accumulatedPause: 0,
+      });
     }
   },
 }));

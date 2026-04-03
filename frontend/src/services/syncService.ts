@@ -33,3 +33,15 @@ export async function syncMerge(localState: SyncState): Promise<SyncState | null
     return null;
   }
 }
+
+export async function syncPull(): Promise<SyncState | null> {
+  try {
+    const res = await fetch(`${API_BASE}/sync/pull`, {
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
+}

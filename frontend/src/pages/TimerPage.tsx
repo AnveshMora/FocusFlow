@@ -11,6 +11,25 @@ function formatTime(seconds: number): string {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
+function playBeep() {
+  try {
+    const ctx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const oscillator = ctx.createOscillator();
+    const gain = ctx.createGain();
+    oscillator.connect(gain);
+    gain.connect(ctx.destination);
+    oscillator.frequency.value = 880;
+    oscillator.type = 'sine';
+    gain.gain.setValueAtTime(0.5, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+    oscillator.start(ctx.currentTime);
+    oscillator.stop(ctx.currentTime + 0.5);
+    setTimeout(() => ctx.close(), 600);
+  } catch {
+    // Web Audio not supported
+  }
+}
+
 export default function TimerPage() {
   const [searchParams] = useSearchParams();
   const mode = searchParams.get('mode') || 'pomodoro';
@@ -32,28 +51,59 @@ export default function TimerPage() {
     }
   }, []);
 
+  const handleTimerComplete = useCallback(() => {
+    const current = useTimerStore.getState();
+    current.completeSession();
+    clearTimer();
+
+    const { soundEnabled, vibrationEnabled } = useActivityStore.getState().settings;
+
+    if (soundEnabled) {
+      playBeep();
+    }
+
+    if (vibrationEnabled && navigator.vibrate) {
+      navigator.vibrate([200, 100, 200]);
+    }
+
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification(
+        current.mode === 'work' ? '⏰ Break time!' : '🔥 Back to focus!'
+      );
+    }
+  }, [clearTimer]);
+
   useEffect(() => {
     if (timer.isRunning) {
       intervalRef.current = setInterval(() => {
         const current = useTimerStore.getState();
-        if (current.timeLeft <= 1) {
-          current.completeSession();
-          clearTimer();
-          // Play notification sound
-          if ('Notification' in window && Notification.permission === 'granted') {
-            new Notification(
-              current.mode === 'work' ? '⏰ Break time!' : '🔥 Back to focus!'
-            );
-          }
-        } else {
-          current.tick();
+        current.tick();
+        if (useTimerStore.getState().timeLeft <= 0) {
+          handleTimerComplete();
         }
       }, 1000);
     } else {
       clearTimer();
     }
     return clearTimer;
-  }, [timer.isRunning, clearTimer]);
+  }, [timer.isRunning, clearTimer, handleTimerComplete]);
+
+  // Recalculate timer when app returns to foreground
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        const current = useTimerStore.getState();
+        if (current.isRunning) {
+          current.tick();
+          if (useTimerStore.getState().timeLeft <= 0) {
+            handleTimerComplete();
+          }
+        }
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, [handleTimerComplete]);
 
   const handleStart = (timerMode: 'work' | 'break') => {
     const duration = timerMode === 'work' ? workDuration : breakDuration;

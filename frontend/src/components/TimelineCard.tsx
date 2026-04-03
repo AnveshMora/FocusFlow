@@ -31,8 +31,8 @@ const statusColors: Record<string, string> = {
   done: 'border-green-500 bg-green-500/10',
   active: 'border-blue-500 bg-blue-500/10',
   pending: 'border-white/10 bg-surface-lighter',
-  skipped: 'border-red-500/50 bg-red-500/5',
-  missed: 'border-red-500 bg-red-500/10',
+  skipped: 'border-amber-500/50 bg-amber-500/5',
+  missed: 'border-amber-500 bg-amber-500/10',
 };
 
 const statusIcons: Record<string, React.ElementType> = {

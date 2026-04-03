@@ -72,7 +72,7 @@ export default function ActivityPage() {
                 : activity.status === 'active'
                 ? 'bg-blue-500/20 text-blue-400'
                 : activity.status === 'skipped'
-                ? 'bg-red-500/20 text-red-400'
+                ? 'bg-amber-500/20 text-amber-400'
                 : 'bg-white/10 text-white/50'
             }`}
           >
@@ -144,7 +144,7 @@ export default function ActivityPage() {
           {activity.status !== 'done' && activity.status !== 'skipped' && (
             <button
               onClick={() => id && updateStatus(id, 'skipped')}
-              className="bg-red-500/10 text-red-400 hover:bg-red-500/20 font-medium py-2 px-4 rounded-xl transition-colors flex items-center gap-1"
+              className="bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 font-medium py-2 px-4 rounded-xl transition-colors flex items-center gap-1"
             >
               <SkipForward className="w-4 h-4" />
             </button>

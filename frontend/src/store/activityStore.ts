@@ -248,12 +248,23 @@ function mergeDefaults(existing: Activity[], defaults: Activity[]): Activity[] {
   return merged;
 }
 
+export interface RewardBalance {
+  balance: number;
+  totalEarned: number;
+  totalPenalty: number;
+  goodDays: number;
+  badDays: number;
+  neutralDays: number;
+}
+
 interface ActivityStore {
   days: Record<string, DayLog>;
   settings: UserSettings;
   scheduleVersion: number;
 
   getTodayLog: () => DayLog;
+  getYesterdayLog: () => DayLog | null;
+  getRewardBalance: () => RewardBalance;
   initToday: () => void;
   updateActivityStatus: (activityId: string, status: ActivityStatus) => void;
   updateActivityNotes: (activityId: string, notes: string) => void;
@@ -277,6 +288,9 @@ export const useActivityStore = create<ActivityStore>()(
         pomodoroBreak: 5,
         checkpointInterval: 20,
         maxScheduleShift: 30,
+        notificationsEnabled: true,
+        soundEnabled: true,
+        vibrationEnabled: true,
         rewards: {
           rewardPerDay: 50,
           penaltyPerMiss: 20,
@@ -296,6 +310,48 @@ export const useActivityStore = create<ActivityStore>()(
           };
         }
         return state.days[key];
+      },
+
+      getYesterdayLog: () => {
+        const today = new Date();
+        const yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate() - 1);
+        const key = yesterday.toISOString().split('T')[0];
+        return get().days[key] ?? null;
+      },
+
+      getRewardBalance: () => {
+        const state = get();
+        const { rewardPerDay, penaltyPerMiss } = state.settings.rewards;
+        const todayKey = getTodayKey();
+        let totalEarned = 0;
+        let totalPenalty = 0;
+        let goodDays = 0;
+        let badDays = 0;
+        let neutralDays = 0;
+
+        for (const [dateKey, day] of Object.entries(state.days)) {
+          // Skip today — day isn't over yet, don't penalize
+          if (dateKey === todayKey) continue;
+          if (day.completionPercent >= 90) {
+            totalEarned += rewardPerDay;
+            goodDays++;
+          } else if (day.completionPercent < 50 && day.activities.length > 0) {
+            totalPenalty += penaltyPerMiss;
+            badDays++;
+          } else {
+            neutralDays++;
+          }
+        }
+
+        return {
+          balance: totalEarned - totalPenalty,
+          totalEarned,
+          totalPenalty,
+          goodDays,
+          badDays,
+          neutralDays,
+        };
       },
 
       initToday: () => {
@@ -486,7 +542,7 @@ export const useActivityStore = create<ActivityStore>()(
 
       updateSettings: (newSettings) => {
         set((state) => ({
-          settings: { ...state.settings, ...newSettings },
+          settings: { ...state.settings, ...newSettings, updatedAt: Date.now() },
         }));
       },
 
