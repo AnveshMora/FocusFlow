@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Play, Pause, RotateCcw, Coffee, Brain } from 'lucide-react';
 import { useTimerStore } from '../store/timerStore';
 import { useActivityStore } from '../store/activityStore';
+import { scheduleTimerNotification, cancelTimerNotification } from '../services/swNotifications';
 import MeditationPlayer from '../components/MeditationPlayer';
 
 function formatTime(seconds: number): string {
@@ -55,6 +56,7 @@ export default function TimerPage() {
     const current = useTimerStore.getState();
     current.completeSession();
     clearTimer();
+    cancelTimerNotification('pomodoro-timer');
 
     const { soundEnabled, vibrationEnabled } = useActivityStore.getState().settings;
 
@@ -108,6 +110,17 @@ export default function TimerPage() {
   const handleStart = (timerMode: 'work' | 'break') => {
     const duration = timerMode === 'work' ? workDuration : breakDuration;
     timer.start(duration, timerMode);
+
+    // Schedule SW notification for when timer completes (fires even if app is backgrounded)
+    const label = timerMode === 'work'
+      ? (isMeditation ? '🧘 Meditation complete!' : '⏰ Break time!')
+      : '🔥 Back to focus!';
+    scheduleTimerNotification(
+      'pomodoro-timer',
+      label,
+      timerMode === 'work' ? 'Great focus session! Take a break.' : 'Break is over — let\'s go!',
+      Date.now() + duration * 1000,
+    );
   };
 
   const progress =
@@ -199,7 +212,7 @@ export default function TimerPage() {
         ) : (
           <>
             <button
-              onClick={timer.reset}
+              onClick={() => { timer.reset(); cancelTimerNotification('pomodoro-timer'); }}
               className="w-12 h-12 rounded-full bg-surface-lighter hover:bg-white/10 flex items-center justify-center transition-colors"
             >
               <RotateCcw className="w-5 h-5" />
@@ -249,7 +262,15 @@ export default function TimerPage() {
             ).map((preset) => (
               <button
                 key={preset.label}
-                onClick={() => timer.start(preset.secs, 'work')}
+                onClick={() => {
+                  timer.start(preset.secs, 'work');
+                  scheduleTimerNotification(
+                    'pomodoro-timer',
+                    isMeditation ? '🧘 Meditation complete!' : '⏰ Break time!',
+                    'Great focus session! Take a break.',
+                    Date.now() + preset.secs * 1000,
+                  );
+                }}
                 className="btn-secondary text-sm text-center"
               >
                 {preset.label}

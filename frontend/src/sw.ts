@@ -18,6 +18,123 @@ cleanupOutdatedCaches();
 // Precache all build assets (injected by vite-plugin-pwa)
 precacheAndRoute(self.__WB_MANIFEST);
 
+// ── Notification Scheduling ─────────────────────────────────────────
+interface ScheduledNotification {
+  id: string;
+  title: string;
+  body: string;
+  fireAt: number; // timestamp
+}
+
+let scheduledNotifications: ScheduledNotification[] = [];
+let activeTimerId: ReturnType<typeof setTimeout> | null = null;
+let keepAliveResolve: (() => void) | null = null;
+
+function showScheduledNotification(n: ScheduledNotification) {
+  self.registration.showNotification(n.title, {
+    body: n.body,
+    icon: '/pwa-192.png',
+    tag: n.id,
+    badge: '/pwa-192.png',
+    requireInteraction: false,
+  } as NotificationOptions);
+}
+
+// Arm a setTimeout for the nearest notification; chain to the next when it fires
+function armNextTimer() {
+  if (activeTimerId !== null) {
+    clearTimeout(activeTimerId);
+    activeTimerId = null;
+  }
+
+  if (scheduledNotifications.length === 0) {
+    // All done — release the waitUntil promise
+    if (keepAliveResolve) {
+      keepAliveResolve();
+      keepAliveResolve = null;
+    }
+    return;
+  }
+
+  // Sort ascending so nearest is first
+  scheduledNotifications.sort((a, b) => a.fireAt - b.fireAt);
+  const next = scheduledNotifications[0];
+  const delay = Math.max(0, next.fireAt - Date.now());
+
+  activeTimerId = setTimeout(() => {
+    activeTimerId = null;
+    // Fire all notifications that are due (handles multiple at same time)
+    const now = Date.now();
+    const due = scheduledNotifications.filter((n) => n.fireAt <= now + 500);
+    scheduledNotifications = scheduledNotifications.filter((n) => n.fireAt > now + 500);
+
+    for (const n of due) {
+      showScheduledNotification(n);
+    }
+
+    // Chain to next
+    armNextTimer();
+  }, delay);
+}
+
+// Create a long-lived promise that keeps the SW alive via waitUntil
+function ensureKeepAlive(event: ExtendableMessageEvent) {
+  if (!keepAliveResolve) {
+    event.waitUntil(
+      new Promise<void>((resolve) => {
+        keepAliveResolve = resolve;
+      }),
+    );
+  }
+}
+
+self.addEventListener('message', (event: ExtendableMessageEvent) => {
+  const { type, notifications, id } = event.data || {};
+
+  if (type === 'SCHEDULE_NOTIFICATIONS') {
+    scheduledNotifications = (notifications as ScheduledNotification[]).filter(
+      (n) => n.fireAt > Date.now(),
+    );
+    if (scheduledNotifications.length > 0) {
+      ensureKeepAlive(event);
+      armNextTimer();
+    }
+  }
+
+  if (type === 'SCHEDULE_TIMER_NOTIFICATION') {
+    const existing = scheduledNotifications.findIndex((n) => n.id === id);
+    if (existing >= 0) scheduledNotifications.splice(existing, 1);
+    scheduledNotifications.push(event.data.notification as ScheduledNotification);
+    ensureKeepAlive(event);
+    armNextTimer();
+  }
+
+  if (type === 'CANCEL_TIMER_NOTIFICATION') {
+    scheduledNotifications = scheduledNotifications.filter((n) => n.id !== id);
+    armNextTimer();
+  }
+
+  if (type === 'CANCEL_ALL_NOTIFICATIONS') {
+    scheduledNotifications = [];
+    armNextTimer(); // will resolve keepAlive since list is empty
+  }
+});
+
+// When user clicks notification, focus the app
+self.addEventListener('notificationclick', (event: NotificationEvent) => {
+  event.notification.close();
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
+      if (clients.length > 0) {
+        return clients[0].focus();
+      }
+      return self.clients.openWindow('/');
+    }),
+  );
+});
+
+// ── Caching & Routing ───────────────────────────────────────────────
+
 // Cache API calls with network-first strategy
 registerRoute(
   /^https?:\/\/.*\/api\/.*/i,
@@ -59,7 +176,6 @@ const OFFLINE_HTML = `<!DOCTYPE html>
 
 // Custom navigation handler — serves cached index.html, validates it's actually our app
 const navigationHandler = async ({ request }: { request: Request }) => {
-  // Try to get our precached index.html
   const cache = await caches.open('workbox-precache-v2-' + self.registration.scope);
   const keys = await cache.keys();
   const indexKey = keys.find((k) => {
@@ -71,21 +187,19 @@ const navigationHandler = async ({ request }: { request: Request }) => {
     const cached = await cache.match(indexKey);
     if (cached) {
       const text = await cached.clone().text();
-      // Validate it's actually our app, not an ngrok error page
       if (text.includes('FocusFlow') || text.includes('root')) {
         return cached;
       }
     }
   }
 
-  // Fallback: try network (for initial install / fresh visit)
   try {
     const response = await fetch(request, {
       headers: { 'ngrok-skip-browser-warning': 'true' },
     });
     if (response.ok) return response;
   } catch {
-    // Network failed — serve offline page
+    // Network failed
   }
 
   return new Response(OFFLINE_HTML, {
@@ -99,25 +213,21 @@ const navRoute = new NavigationRoute(navigationHandler as any, {
 });
 registerRoute(navRoute);
 
-// Intercept all fetch requests — if we get an ngrok error page, try cache
+// Intercept all fetch requests — cache-first for static assets
 self.addEventListener('fetch', (event: FetchEvent) => {
-  // Only handle non-navigation, non-API requests that workbox doesn't handle
   const url = new URL(event.request.url);
   if (
     event.request.mode === 'navigate' ||
     url.pathname.startsWith('/api')
   ) {
-    return; // Handled by routes above
+    return;
   }
 
-  // For static assets: try cache first, then network
   event.respondWith(
     (async () => {
-      // Check all caches for this asset
       const cachedResponse = await caches.match(event.request);
       if (cachedResponse) return cachedResponse;
 
-      // Try network
       try {
         const response = await fetch(event.request);
         if (response.ok) return response;
