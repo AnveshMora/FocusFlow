@@ -48,4 +48,48 @@
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
-  Displaying CLAUDE.md.
+
+---
+
+## FocusFlow — Known Bugs & Patterns
+
+### Hard Bugs (encountered and fixed — watch for regressions)
+
+1. **Stale Service Worker Cache**
+   - SW with `devOptions: { enabled: true }` caches old bundles on localhost and silently serves them even after rebuild.
+   - Rule: Never enable dev SW. Only register SW on production origins (ngrok/deployed). Auto-unregister on localhost (`main.tsx`).
+
+2. **Sync Race Condition**
+   - Two concurrent `/merge` requests read the same server JSON, merge independently, then write back — second write erases the first's changes.
+   - Rule: Any read-modify-write on `sync-state.json` must be wrapped in a mutex lock (`backend/src/routes/sync.ts`).
+
+3. **Sync Feedback Loop**
+   - Applying merged state to Zustand triggers store subscription → triggers sync → triggers subscription → infinite loop.
+   - Rule: Use `skipNextSubRef` flag in `useSync.ts` to skip one subscription callback after applying merged data.
+
+4. **Settings Overwrite on Sync**
+   - Merge logic `client.settings ?? server.settings` means non-null defaults always win over customized remote settings.
+   - Rule: Every synced entity needs an `updatedAt` timestamp. Compare timestamps in merge — newer wins.
+
+5. **Background Notifications Frozen**
+   - `window.setTimeout()` gets frozen when browser tab is backgrounded. Notifications never fire.
+   - Rule: Delegate time-sensitive scheduling to Service Worker via `postMessage`. Use `setTimeout` chain + `event.waitUntil()` to keep SW alive.
+
+### PWA Gotchas
+
+- **ngrok error pages get cached** — ngrok returns HTML (not network errors) when tunnel is down. SW caches these as the app shell. Always validate cached HTML contains app markers (`FocusFlow` / `root`) before serving.
+- **iOS Safari SW lifetime** — Service workers have restricted lifetimes. `waitUntil` helps but isn't guaranteed for long durations. Only Web Push (server-side) can wake a killed browser.
+- **Always show a version tag** — Display build version in the UI header so you can instantly verify which bundle is running on each device. Without this, caching bugs are invisible.
+- **`vite preview` has no HMR** — After `npm run build`, users must manually hard-refresh. Consider adding a SW update prompt.
+
+### Reusable Patterns
+
+| Pattern | File | Purpose |
+|---|---|---|
+| Timestamp-based timers | `store/timerStore.ts` | Use `Date.now()` not `setInterval` counting — survives app backgrounding |
+| Mutex lock on file I/O | `backend/src/routes/sync.ts` | Prevents concurrent merge corruption on shared JSON |
+| `skipNextSubRef` | `hooks/useSync.ts` | Breaks reactive feedback loops in bidirectional sync |
+| SW notification chain | `sw.ts` | `setTimeout` chain + `waitUntil` for precise background notification scheduling |
+| `visibilitychange` listener | `pages/TimerPage.tsx` | Recalculate state when app returns to foreground |
+| `focus` event + 60s interval | `App.tsx` | Detect midnight rollover / new day on app resume |
+| Trust-based checkpoints | `components/CheckpointModal.tsx` | 5→10→20→40→60 min adaptive intervals; "Yes" grows trust, ignore shrinks it |
