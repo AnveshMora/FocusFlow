@@ -8,10 +8,14 @@ interface CheckpointTracker {
   lastCheckTime: number;
   responses: ('yes' | 'pause' | 'skip' | 'ignored')[];
   paused: boolean;
+  trustLevel: number; // 0-4 → maps to TRUST_INTERVALS
 }
 
 const MAX_CHECKS = 5;
 const POLL_MS = 60_000;
+
+// PRD: 5 → 10 → 20 → 40 → 60 min (trust-based adaptive intervals)
+const TRUST_INTERVALS = [5, 10, 20, 40, 60]; // minutes
 
 function getOrCreateTracker(
   trackers: Map<string, CheckpointTracker>,
@@ -19,23 +23,23 @@ function getOrCreateTracker(
 ): CheckpointTracker {
   let t = trackers.get(id);
   if (!t) {
-    t = { checkCount: 0, lastCheckTime: 0, responses: [], paused: false };
+    t = { checkCount: 0, lastCheckTime: 0, responses: [], paused: false, trustLevel: 0 };
     trackers.set(id, t);
   }
   return t;
 }
 
 /**
- * Adaptive escalation:
- *  - 1st check: full interval (default 20 min)
- *  - After 1 ignore: 50% of interval
- *  - After 2+ ignores or paused: 5 min
+ * Trust-based adaptive escalation (per PRD 3.2):
+ *  - Starts at 5 min (low trust)
+ *  - "Yes" → trust grows, interval increases: 5→10→20→40→60
+ *  - Ignored → trust drops, interval shrinks back toward 5 min
+ *  - Paused → fixed 5 min until resumed
  */
-function getIntervalMs(baseMin: number, checkCount: number, paused: boolean): number {
-  if (paused) return 5 * 60_000;
-  if (checkCount === 0) return baseMin * 60_000;
-  if (checkCount === 1) return Math.round(baseMin * 0.5) * 60_000;
-  return 5 * 60_000;
+function getIntervalMs(tracker: CheckpointTracker): number {
+  if (tracker.paused) return 5 * 60_000;
+  const level = Math.max(0, Math.min(tracker.trustLevel, TRUST_INTERVALS.length - 1));
+  return TRUST_INTERVALS[level] * 60_000;
 }
 
 function nowTimeStr(): string {
@@ -161,6 +165,8 @@ export default function CheckpointModal() {
       if (visibleRef.current && activeIdRef.current === active.id) {
         tracker.responses.push('ignored');
         tracker.checkCount++;
+        // Trust drops — decrease interval (more frequent checks)
+        tracker.trustLevel = Math.max(0, tracker.trustLevel - 1);
         if (tracker.checkCount >= MAX_CHECKS) {
           updateStatusRef.current(active.id, 'skipped');
           trackers.delete(active.id);
@@ -190,18 +196,13 @@ export default function CheckpointModal() {
       if (s.soundEnabled) playChime();
       if (s.vibrationEnabled) triggerVibration();
 
-      // Schedule escalated follow-up (checkCount+1 assumes this one is ignored)
-      const next = getIntervalMs(
-        s.checkpointInterval,
-        tracker.checkCount + 1,
-        tracker.paused
-      );
+      // Schedule escalated follow-up
+      const next = getIntervalMs(tracker);
       timerRef.current = setTimeout(fireCheckpoint, next);
     };
 
     // --- Compute initial delay ---
     const activities = activitiesRef.current;
-    const s = settingsRef.current;
     const time = nowTimeStr();
 
     const active = activities.find(
@@ -219,13 +220,13 @@ export default function CheckpointModal() {
     const tracker = getOrCreateTracker(trackersRef.current, active.id);
 
     if (tracker.lastCheckTime === 0) {
-      // First encounter — wait the full interval before first check
+      // First encounter — wait the initial interval (5 min at trust level 0)
       tracker.lastCheckTime = Date.now();
-      const interval = getIntervalMs(s.checkpointInterval, tracker.checkCount, tracker.paused);
+      const interval = getIntervalMs(tracker);
       timerRef.current = setTimeout(fireCheckpoint, interval);
     } else {
       // Resuming after a user response — compute remaining time
-      const interval = getIntervalMs(s.checkpointInterval, tracker.checkCount, tracker.paused);
+      const interval = getIntervalMs(tracker);
       const elapsed = Date.now() - tracker.lastCheckTime;
       const remaining = Math.max(1000, interval - elapsed);
       timerRef.current = setTimeout(fireCheckpoint, remaining);
@@ -262,15 +263,16 @@ export default function CheckpointModal() {
 
     switch (response) {
       case 'yes':
-        // Reset escalation — user is engaged
+        // Trust grows — increase interval for next check
         tracker.checkCount = 0;
         tracker.paused = false;
+        tracker.trustLevel = Math.min(tracker.trustLevel + 1, TRUST_INTERVALS.length - 1);
         if (activity.status === 'pending') {
           updateStatus(activeId, 'active');
         }
         break;
       case 'pause':
-        // Next check in 5 min
+        // Next check in 5 min (trust unchanged)
         tracker.checkCount++;
         tracker.paused = true;
         break;
@@ -302,6 +304,7 @@ export default function CheckpointModal() {
         <p className="text-white/30 text-xs">
           Check {Math.min(tracker.checkCount + 1, MAX_CHECKS)} of {MAX_CHECKS}
           {tracker.paused && ' · ⏸ Paused'}
+          {' · '}Next in {TRUST_INTERVALS[Math.min(tracker.trustLevel, TRUST_INTERVALS.length - 1)]}min
         </p>
         <div className="flex gap-2 justify-center">
           <button
