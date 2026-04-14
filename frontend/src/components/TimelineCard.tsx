@@ -12,6 +12,7 @@ import {
   Moon,
   Car,
   Zap,
+  Users,
 } from 'lucide-react';
 import type { Activity } from '../types';
 
@@ -24,6 +25,7 @@ const typeIcons: Record<string, React.ElementType> = {
   sleep: Moon,
   travel: Car,
   routine: Zap,
+  family: Users,
   custom: Zap,
 };
 

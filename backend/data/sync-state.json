@@ -252,7 +252,7 @@
       ],
       "completionPercent": 92,
       "scheduleModified": true,
-      "lastSyncedAt": 1775455418600
+      "lastSyncedAt": 1776162486160
     },
     "2026-04-03": {
       "date": "2026-04-03",
@@ -471,7 +471,7 @@
       ],
       "completionPercent": 100,
       "scheduleModified": false,
-      "lastSyncedAt": 1775455418600
+      "lastSyncedAt": 1776162486160
     },
     "2026-04-04": {
       "date": "2026-04-04",
@@ -690,7 +690,7 @@
       ],
       "completionPercent": 95,
       "scheduleModified": false,
-      "lastSyncedAt": 1775455418600
+      "lastSyncedAt": 1776162486160
     },
     "2026-04-05": {
       "date": "2026-04-05",
@@ -909,7 +909,7 @@
       ],
       "completionPercent": 100,
       "scheduleModified": false,
-      "lastSyncedAt": 1775455418600
+      "lastSyncedAt": 1776162486160
     },
     "2026-04-06": {
       "date": "2026-04-06",
@@ -1010,9 +1010,9 @@
           "type": "work",
           "startTime": "11:00",
           "endTime": "16:00",
-          "status": "skipped",
+          "status": "done",
           "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours",
-          "updatedAt": 1775454938599
+          "updatedAt": 1775465318750
         },
         {
           "id": "green-tea",
@@ -1030,8 +1030,9 @@
           "type": "recovery",
           "startTime": "14:30",
           "endTime": "15:00",
-          "status": "pending",
-          "instructions": "2 min deep breathing and short walk if possible"
+          "instructions": "2 min deep breathing and short walk if possible",
+          "status": "done",
+          "updatedAt": 1775465313555
         },
         {
           "id": "commute-evening",
@@ -1039,8 +1040,9 @@
           "type": "travel",
           "startTime": "16:00",
           "endTime": "17:00",
-          "status": "pending",
-          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking"
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking",
+          "status": "done",
+          "updatedAt": 1775471751452
         },
         {
           "id": "evening-recovery",
@@ -1048,8 +1050,9 @@
           "type": "recovery",
           "startTime": "17:15",
           "endTime": "18:15",
-          "status": "pending",
-          "instructions": "15–20 min walk, light stretching, optional shower"
+          "instructions": "15–20 min walk, light stretching, optional shower",
+          "status": "done",
+          "updatedAt": 1775471764273
         },
         {
           "id": "study-evening",
@@ -1057,8 +1060,9 @@
           "type": "study",
           "startTime": "18:15",
           "endTime": "19:00",
-          "status": "pending",
-          "instructions": "Light revision or practice. Skip if mentally tired"
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "done",
+          "updatedAt": 1775479931973
         },
         {
           "id": "dinner",
@@ -1066,8 +1070,9 @@
           "type": "routine",
           "startTime": "19:00",
           "endTime": "19:30",
-          "status": "pending",
-          "instructions": "Eat a light and balanced dinner"
+          "instructions": "Eat a light and balanced dinner",
+          "status": "done",
+          "updatedAt": 1775486950085
         },
         {
           "id": "turmeric-latte",
@@ -1075,8 +1080,9 @@
           "type": "routine",
           "startTime": "19:45",
           "endTime": "20:00",
-          "status": "pending",
-          "instructions": "Drink turmeric latte for recovery and relaxation"
+          "instructions": "Drink turmeric latte for recovery and relaxation",
+          "status": "done",
+          "updatedAt": 1775488413661
         },
         {
           "id": "wind-down",
@@ -1084,8 +1090,9 @@
           "type": "recovery",
           "startTime": "20:30",
           "endTime": "20:40",
-          "status": "pending",
-          "instructions": "Avoid screens and start winding down"
+          "instructions": "Avoid screens and start winding down",
+          "status": "done",
+          "updatedAt": 1775488414710
         },
         {
           "id": "chamomile-tea",
@@ -1093,8 +1100,9 @@
           "type": "routine",
           "startTime": "20:40",
           "endTime": "20:45",
-          "status": "pending",
-          "instructions": "Drink chamomile tea for relaxation"
+          "instructions": "Drink chamomile tea for relaxation",
+          "status": "active",
+          "updatedAt": 1775488410089
         },
         {
           "id": "body-scan",
@@ -1102,8 +1110,8 @@
           "type": "meditation",
           "startTime": "20:45",
           "endTime": "20:55",
-          "status": "pending",
-          "instructions": "Guided body scan meditation for deep relaxation"
+          "instructions": "Guided body scan meditation for deep relaxation",
+          "status": "pending"
         },
         {
           "id": "sleep",
@@ -1117,14 +1125,1649 @@
           "updatedAt": 1775450651483
         }
       ],
+      "completionPercent": 86,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-07": {
+      "date": "2026-04-07",
+      "activities": [
+        {
+          "id": "wake",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "05:00",
+          "endTime": "05:10",
+          "instructions": "Wake up and drink 1-2 glasses of water",
+          "status": "done",
+          "updatedAt": 1775536139434
+        },
+        {
+          "id": "warmup",
+          "title": "Warm-up",
+          "type": "workout",
+          "startTime": "05:10",
+          "endTime": "05:20",
+          "instructions": "Neck rolls, shoulder rotations, light mobility exercises",
+          "status": "done",
+          "updatedAt": 1775536142134
+        },
+        {
+          "id": "workout",
+          "title": "Workout",
+          "type": "workout",
+          "startTime": "05:20",
+          "endTime": "06:20",
+          "instructions": "Resistance band and bodyweight training. Maintain proper breathing, avoid neck strain",
+          "status": "done",
+          "updatedAt": 1775536145062
+        },
+        {
+          "id": "cooldown",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "06:20",
+          "endTime": "06:30",
+          "instructions": "Stretch neck, shoulders, and upper back. Slow breathing",
+          "status": "done",
+          "updatedAt": 1775536146193
+        },
+        {
+          "id": "meditation",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "06:30",
+          "endTime": "06:40",
+          "instructions": "Breathing meditation using guided audio",
+          "status": "done",
+          "updatedAt": 1775536147733
+        },
+        {
+          "id": "sunlight",
+          "title": "Sunlight Exposure",
+          "type": "routine",
+          "startTime": "06:45",
+          "endTime": "07:00",
+          "instructions": "Get 10-15 minutes of sunlight exposure",
+          "status": "done",
+          "updatedAt": 1775536148496
+        },
+        {
+          "id": "study",
+          "title": "Study Session (Deep Work)",
+          "type": "study",
+          "startTime": "07:00",
+          "endTime": "08:15",
+          "instructions": "2 × 30 min focus blocks with 5 min break. No phone, no distractions",
+          "status": "done",
+          "updatedAt": 1775536149972
+        },
+        {
+          "id": "breakfast",
+          "title": "Breakfast + Coffee + Get Ready",
+          "type": "routine",
+          "startTime": "08:15",
+          "endTime": "09:15",
+          "instructions": "Eat breakfast, have coffee, and get ready calmly without rushing",
+          "status": "done",
+          "updatedAt": 1775536150797
+        },
+        {
+          "id": "commute-morning",
+          "title": "Commute to Office",
+          "type": "travel",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "instructions": "Listen to educational audio or podcasts, or relax mind. Avoid random scrolling and stress thinking",
+          "status": "done",
+          "updatedAt": 1775536154603
+        },
+        {
+          "id": "office-work",
+          "title": "Office Work (Focused Work)",
+          "type": "work",
+          "startTime": "11:00",
+          "endTime": "16:00",
+          "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours",
+          "status": "done",
+          "updatedAt": 1775558349480
+        },
+        {
+          "id": "green-tea",
+          "title": "Green Tea Break",
+          "type": "routine",
+          "startTime": "11:30",
+          "endTime": "11:40",
+          "instructions": "Drink green tea and take a short refresh break",
+          "status": "done",
+          "updatedAt": 1775558349810
+        },
+        {
+          "id": "afternoon-reset",
+          "title": "Afternoon Reset Break",
+          "type": "recovery",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "instructions": "2 min deep breathing and short walk if possible",
+          "status": "done",
+          "updatedAt": 1775558350578
+        },
+        {
+          "id": "commute-evening",
+          "title": "Commute Back Home",
+          "type": "travel",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking",
+          "status": "done",
+          "updatedAt": 1775558352763
+        },
+        {
+          "id": "evening-recovery",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:15",
+          "endTime": "18:15",
+          "instructions": "15–20 min walk, light stretching, optional shower",
+          "status": "done",
+          "updatedAt": 1775565956663
+        },
+        {
+          "id": "study-evening",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "18:15",
+          "endTime": "19:00",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "done",
+          "updatedAt": 1775565958622
+        },
+        {
+          "id": "dinner",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:30",
+          "instructions": "Eat a light and balanced dinner",
+          "status": "done",
+          "updatedAt": 1775565959518
+        },
+        {
+          "id": "turmeric-latte",
+          "title": "Turmeric Latte",
+          "type": "routine",
+          "startTime": "19:45",
+          "endTime": "20:00",
+          "instructions": "Drink turmeric latte for recovery and relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "wind-down",
+          "title": "No Screens + Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "instructions": "Avoid screens and start winding down",
+          "status": "pending"
+        },
+        {
+          "id": "chamomile-tea",
+          "title": "Chamomile Tea",
+          "type": "routine",
+          "startTime": "20:40",
+          "endTime": "20:45",
+          "instructions": "Drink chamomile tea for relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "body-scan",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "instructions": "Guided body scan meditation for deep relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "05:00",
+          "instructions": "7–8 hours of quality sleep",
+          "status": "pending",
+          "notes": "Sleep quality: 2/5",
+          "updatedAt": 1775536134953
+        }
+      ],
+      "completionPercent": 76,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-08": {
+      "date": "2026-04-08",
+      "activities": [
+        {
+          "id": "wake",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "05:00",
+          "endTime": "05:10",
+          "instructions": "Wake up and drink 1-2 glasses of water",
+          "status": "done",
+          "updatedAt": 1775615867420
+        },
+        {
+          "id": "warmup",
+          "title": "Warm-up",
+          "type": "workout",
+          "startTime": "05:10",
+          "endTime": "05:20",
+          "instructions": "Neck rolls, shoulder rotations, light mobility exercises",
+          "status": "done",
+          "updatedAt": 1775615868385
+        },
+        {
+          "id": "workout",
+          "title": "Workout",
+          "type": "workout",
+          "startTime": "05:20",
+          "endTime": "06:20",
+          "instructions": "Resistance band and bodyweight training. Maintain proper breathing, avoid neck strain",
+          "status": "done",
+          "updatedAt": 1775615871281
+        },
+        {
+          "id": "cooldown",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "06:20",
+          "endTime": "06:30",
+          "instructions": "Stretch neck, shoulders, and upper back. Slow breathing",
+          "status": "done",
+          "updatedAt": 1775615871934
+        },
+        {
+          "id": "meditation",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "06:30",
+          "endTime": "06:40",
+          "instructions": "Breathing meditation using guided audio",
+          "status": "done",
+          "updatedAt": 1775615873181
+        },
+        {
+          "id": "sunlight",
+          "title": "Sunlight Exposure",
+          "type": "routine",
+          "startTime": "06:45",
+          "endTime": "07:00",
+          "instructions": "Get 10-15 minutes of sunlight exposure",
+          "status": "done",
+          "updatedAt": 1775615873503
+        },
+        {
+          "id": "study",
+          "title": "Study Session (Deep Work)",
+          "type": "study",
+          "startTime": "07:00",
+          "endTime": "08:15",
+          "instructions": "2 × 30 min focus blocks with 5 min break. No phone, no distractions",
+          "status": "done",
+          "updatedAt": 1775615875093
+        },
+        {
+          "id": "breakfast",
+          "title": "Breakfast + Coffee + Get Ready",
+          "type": "routine",
+          "startTime": "08:15",
+          "endTime": "09:15",
+          "instructions": "Eat breakfast, have coffee, and get ready calmly without rushing",
+          "status": "done",
+          "updatedAt": 1775615875884
+        },
+        {
+          "id": "commute-morning",
+          "title": "Commute to Office",
+          "type": "travel",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "instructions": "Listen to educational audio or podcasts, or relax mind. Avoid random scrolling and stress thinking",
+          "status": "done",
+          "updatedAt": 1775621674868
+        },
+        {
+          "id": "office-work",
+          "title": "Office Work (Focused Work)",
+          "type": "work",
+          "startTime": "11:00",
+          "endTime": "16:00",
+          "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours",
+          "status": "done",
+          "updatedAt": 1775646253981
+        },
+        {
+          "id": "green-tea",
+          "title": "Green Tea Break",
+          "type": "routine",
+          "startTime": "11:30",
+          "endTime": "11:40",
+          "instructions": "Drink green tea and take a short refresh break",
+          "status": "done",
+          "updatedAt": 1775646255665
+        },
+        {
+          "id": "afternoon-reset",
+          "title": "Afternoon Reset Break",
+          "type": "recovery",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "instructions": "2 min deep breathing and short walk if possible",
+          "status": "done",
+          "updatedAt": 1775646256613
+        },
+        {
+          "id": "commute-evening",
+          "title": "Commute Back Home",
+          "type": "travel",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking",
+          "status": "done",
+          "updatedAt": 1775646257724
+        },
+        {
+          "id": "evening-recovery",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:15",
+          "endTime": "18:15",
+          "instructions": "15–20 min walk, light stretching, optional shower",
+          "status": "done",
+          "updatedAt": 1775664171443
+        },
+        {
+          "id": "study-evening",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "18:15",
+          "endTime": "19:00",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "done",
+          "updatedAt": 1775664171908
+        },
+        {
+          "id": "dinner",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:30",
+          "instructions": "Eat a light and balanced dinner",
+          "status": "done",
+          "updatedAt": 1775664172392
+        },
+        {
+          "id": "turmeric-latte",
+          "title": "Turmeric Latte",
+          "type": "routine",
+          "startTime": "19:45",
+          "endTime": "20:00",
+          "instructions": "Drink turmeric latte for recovery and relaxation",
+          "status": "done",
+          "updatedAt": 1775664172934
+        },
+        {
+          "id": "wind-down",
+          "title": "No Screens + Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "instructions": "Avoid screens and start winding down",
+          "status": "done",
+          "updatedAt": 1775664173864
+        },
+        {
+          "id": "chamomile-tea",
+          "title": "Chamomile Tea",
+          "type": "routine",
+          "startTime": "20:40",
+          "endTime": "20:45",
+          "instructions": "Drink chamomile tea for relaxation",
+          "status": "done",
+          "updatedAt": 1775664174937
+        },
+        {
+          "id": "body-scan",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "instructions": "Guided body scan meditation for deep relaxation",
+          "status": "done",
+          "updatedAt": 1775664175777
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "05:00",
+          "instructions": "7–8 hours of quality sleep",
+          "status": "done",
+          "notes": "Sleep quality: 5/5",
+          "updatedAt": 1775664176379
+        }
+      ],
+      "completionPercent": 100,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-09": {
+      "date": "2026-04-09",
+      "activities": [
+        {
+          "id": "wake",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "05:00",
+          "endTime": "05:10",
+          "instructions": "Wake up and drink 1-2 glasses of water",
+          "status": "done",
+          "updatedAt": 1775708980834
+        },
+        {
+          "id": "warmup",
+          "title": "Warm-up",
+          "type": "workout",
+          "startTime": "05:10",
+          "endTime": "05:20",
+          "instructions": "Neck rolls, shoulder rotations, light mobility exercises",
+          "status": "done",
+          "updatedAt": 1775708982013
+        },
+        {
+          "id": "workout",
+          "title": "Workout",
+          "type": "workout",
+          "startTime": "05:20",
+          "endTime": "06:20",
+          "instructions": "Resistance band and bodyweight training. Maintain proper breathing, avoid neck strain",
+          "status": "done",
+          "updatedAt": 1775708983223
+        },
+        {
+          "id": "cooldown",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "06:20",
+          "endTime": "06:30",
+          "instructions": "Stretch neck, shoulders, and upper back. Slow breathing",
+          "status": "done",
+          "updatedAt": 1775708983740
+        },
+        {
+          "id": "meditation",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "06:30",
+          "endTime": "06:40",
+          "instructions": "Breathing meditation using guided audio",
+          "status": "done",
+          "updatedAt": 1775708984945
+        },
+        {
+          "id": "sunlight",
+          "title": "Sunlight Exposure",
+          "type": "routine",
+          "startTime": "06:45",
+          "endTime": "07:00",
+          "instructions": "Get 10-15 minutes of sunlight exposure",
+          "status": "done",
+          "updatedAt": 1775708990289
+        },
+        {
+          "id": "study",
+          "title": "Study Session (Deep Work)",
+          "type": "study",
+          "startTime": "07:00",
+          "endTime": "08:15",
+          "instructions": "2 × 30 min focus blocks with 5 min break. No phone, no distractions",
+          "status": "done",
+          "updatedAt": 1775708991689
+        },
+        {
+          "id": "breakfast",
+          "title": "Breakfast + Coffee + Get Ready",
+          "type": "routine",
+          "startTime": "08:15",
+          "endTime": "09:15",
+          "instructions": "Eat breakfast, have coffee, and get ready calmly without rushing",
+          "status": "done",
+          "updatedAt": 1775708992067
+        },
+        {
+          "id": "commute-morning",
+          "title": "Commute to Office",
+          "type": "travel",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "instructions": "Listen to educational audio or podcasts, or relax mind. Avoid random scrolling and stress thinking",
+          "status": "done",
+          "updatedAt": 1775708993032
+        },
+        {
+          "id": "office-work",
+          "title": "Office Work (Focused Work)",
+          "type": "work",
+          "startTime": "11:00",
+          "endTime": "16:00",
+          "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours",
+          "status": "done",
+          "updatedAt": 1775730099117
+        },
+        {
+          "id": "green-tea",
+          "title": "Green Tea Break",
+          "type": "routine",
+          "startTime": "11:30",
+          "endTime": "11:40",
+          "instructions": "Drink green tea and take a short refresh break",
+          "status": "done",
+          "updatedAt": 1775730099571
+        },
+        {
+          "id": "afternoon-reset",
+          "title": "Afternoon Reset Break",
+          "type": "recovery",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "instructions": "2 min deep breathing and short walk if possible",
+          "status": "done",
+          "updatedAt": 1775730100591
+        },
+        {
+          "id": "commute-evening",
+          "title": "Commute Back Home",
+          "type": "travel",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking",
+          "status": "active",
+          "updatedAt": 1775731186071
+        },
+        {
+          "id": "evening-recovery",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:15",
+          "endTime": "18:15",
+          "instructions": "15–20 min walk, light stretching, optional shower",
+          "status": "pending"
+        },
+        {
+          "id": "study-evening",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "18:15",
+          "endTime": "19:00",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "pending"
+        },
+        {
+          "id": "dinner",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:30",
+          "instructions": "Eat a light and balanced dinner",
+          "status": "pending"
+        },
+        {
+          "id": "turmeric-latte",
+          "title": "Turmeric Latte",
+          "type": "routine",
+          "startTime": "19:45",
+          "endTime": "20:00",
+          "instructions": "Drink turmeric latte for recovery and relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "wind-down",
+          "title": "No Screens + Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "instructions": "Avoid screens and start winding down",
+          "status": "pending"
+        },
+        {
+          "id": "chamomile-tea",
+          "title": "Chamomile Tea",
+          "type": "routine",
+          "startTime": "20:40",
+          "endTime": "20:45",
+          "instructions": "Drink chamomile tea for relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "body-scan",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "instructions": "Guided body scan meditation for deep relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "05:00",
+          "instructions": "7–8 hours of quality sleep",
+          "status": "pending",
+          "notes": "Sleep quality: 5/5",
+          "updatedAt": 1775708957365
+        }
+      ],
+      "completionPercent": 57,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-14": {
+      "date": "2026-04-14",
+      "activities": [
+        {
+          "id": "wake",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "05:00",
+          "endTime": "05:10",
+          "instructions": "Wake up and drink 1-2 glasses of water",
+          "status": "pending"
+        },
+        {
+          "id": "warmup",
+          "title": "Warm-up",
+          "type": "workout",
+          "startTime": "05:10",
+          "endTime": "05:20",
+          "instructions": "Neck rolls, shoulder rotations, light mobility exercises",
+          "status": "pending"
+        },
+        {
+          "id": "workout",
+          "title": "Workout",
+          "type": "workout",
+          "startTime": "05:20",
+          "endTime": "06:20",
+          "instructions": "Resistance band and bodyweight training. Maintain proper breathing, avoid neck strain",
+          "status": "pending"
+        },
+        {
+          "id": "cooldown",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "06:20",
+          "endTime": "06:30",
+          "instructions": "Stretch neck, shoulders, and upper back. Slow breathing",
+          "status": "pending"
+        },
+        {
+          "id": "meditation",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "06:30",
+          "endTime": "06:40",
+          "instructions": "Breathing meditation using guided audio",
+          "status": "pending"
+        },
+        {
+          "id": "sunlight",
+          "title": "Sunlight Exposure",
+          "type": "routine",
+          "startTime": "06:45",
+          "endTime": "07:00",
+          "instructions": "Get 10-15 minutes of sunlight exposure",
+          "status": "pending"
+        },
+        {
+          "id": "study",
+          "title": "Study Session (Deep Work)",
+          "type": "study",
+          "startTime": "07:00",
+          "endTime": "08:15",
+          "instructions": "2 × 30 min focus blocks with 5 min break. No phone, no distractions",
+          "status": "pending"
+        },
+        {
+          "id": "breakfast",
+          "title": "Breakfast + Coffee + Get Ready",
+          "type": "routine",
+          "startTime": "08:15",
+          "endTime": "09:15",
+          "instructions": "Eat breakfast, have coffee, and get ready calmly without rushing",
+          "status": "pending"
+        },
+        {
+          "id": "commute-morning",
+          "title": "Commute to Office",
+          "type": "travel",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "instructions": "Listen to educational audio or podcasts, or relax mind. Avoid random scrolling and stress thinking",
+          "status": "pending"
+        },
+        {
+          "id": "office-work",
+          "title": "Office Work (Focused Work)",
+          "type": "work",
+          "startTime": "11:00",
+          "endTime": "16:00",
+          "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours",
+          "status": "active",
+          "updatedAt": 1776158295976
+        },
+        {
+          "id": "green-tea",
+          "title": "Green Tea Break",
+          "type": "routine",
+          "startTime": "11:30",
+          "endTime": "11:40",
+          "instructions": "Drink green tea and take a short refresh break",
+          "status": "pending"
+        },
+        {
+          "id": "afternoon-reset",
+          "title": "Afternoon Reset Break",
+          "type": "recovery",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "instructions": "2 min deep breathing and short walk if possible",
+          "status": "pending"
+        },
+        {
+          "id": "commute-evening",
+          "title": "Commute Back Home",
+          "type": "travel",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking",
+          "status": "pending"
+        },
+        {
+          "id": "evening-recovery",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:15",
+          "endTime": "18:15",
+          "instructions": "15–20 min walk, light stretching, optional shower",
+          "status": "pending"
+        },
+        {
+          "id": "study-evening",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "18:15",
+          "endTime": "19:00",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "pending"
+        },
+        {
+          "id": "dinner",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:30",
+          "instructions": "Eat a light and balanced dinner",
+          "status": "pending"
+        },
+        {
+          "id": "turmeric-latte",
+          "title": "Turmeric Latte",
+          "type": "routine",
+          "startTime": "19:45",
+          "endTime": "20:00",
+          "instructions": "Drink turmeric latte for recovery and relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "wind-down",
+          "title": "No Screens + Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "instructions": "Avoid screens and start winding down",
+          "status": "pending"
+        },
+        {
+          "id": "chamomile-tea",
+          "title": "Chamomile Tea",
+          "type": "routine",
+          "startTime": "20:40",
+          "endTime": "20:45",
+          "instructions": "Drink chamomile tea for relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "body-scan",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "instructions": "Guided body scan meditation for deep relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "05:00",
+          "instructions": "7–8 hours of quality sleep",
+          "status": "pending",
+          "notes": "Sleep quality: 0/5",
+          "updatedAt": 1776162007939
+        }
+      ],
+      "completionPercent": 0,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-10": {
+      "date": "2026-04-10",
+      "activities": [
+        {
+          "id": "wake",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "05:00",
+          "endTime": "05:10",
+          "instructions": "Wake up and drink 1-2 glasses of water",
+          "status": "done",
+          "updatedAt": 1775793577405
+        },
+        {
+          "id": "warmup",
+          "title": "Warm-up",
+          "type": "workout",
+          "startTime": "05:10",
+          "endTime": "05:20",
+          "instructions": "Neck rolls, shoulder rotations, light mobility exercises",
+          "status": "done",
+          "updatedAt": 1775793577688
+        },
+        {
+          "id": "workout",
+          "title": "Workout",
+          "type": "workout",
+          "startTime": "05:20",
+          "endTime": "06:20",
+          "instructions": "Resistance band and bodyweight training. Maintain proper breathing, avoid neck strain",
+          "status": "done",
+          "updatedAt": 1775793579190
+        },
+        {
+          "id": "cooldown",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "06:20",
+          "endTime": "06:30",
+          "instructions": "Stretch neck, shoulders, and upper back. Slow breathing",
+          "status": "done",
+          "updatedAt": 1775793580357
+        },
+        {
+          "id": "meditation",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "06:30",
+          "endTime": "06:40",
+          "instructions": "Breathing meditation using guided audio",
+          "status": "done",
+          "updatedAt": 1775793580984
+        },
+        {
+          "id": "sunlight",
+          "title": "Sunlight Exposure",
+          "type": "routine",
+          "startTime": "06:45",
+          "endTime": "07:00",
+          "instructions": "Get 10-15 minutes of sunlight exposure",
+          "status": "done",
+          "updatedAt": 1775793581354
+        },
+        {
+          "id": "study",
+          "title": "Study Session (Deep Work)",
+          "type": "study",
+          "startTime": "07:00",
+          "endTime": "08:15",
+          "instructions": "2 × 30 min focus blocks with 5 min break. No phone, no distractions",
+          "status": "done",
+          "updatedAt": 1775793582256
+        },
+        {
+          "id": "breakfast",
+          "title": "Breakfast + Coffee + Get Ready",
+          "type": "routine",
+          "startTime": "08:15",
+          "endTime": "09:15",
+          "instructions": "Eat breakfast, have coffee, and get ready calmly without rushing",
+          "status": "done",
+          "updatedAt": 1775793582604
+        },
+        {
+          "id": "commute-morning",
+          "title": "Commute to Office",
+          "type": "travel",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "instructions": "Listen to educational audio or podcasts, or relax mind. Avoid random scrolling and stress thinking",
+          "status": "done",
+          "updatedAt": 1775793583777
+        },
+        {
+          "id": "office-work",
+          "title": "Office Work (Focused Work)",
+          "type": "work",
+          "startTime": "11:00",
+          "endTime": "16:00",
+          "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours",
+          "status": "done",
+          "updatedAt": 1775802135146
+        },
+        {
+          "id": "green-tea",
+          "title": "Green Tea Break",
+          "type": "routine",
+          "startTime": "11:30",
+          "endTime": "11:40",
+          "instructions": "Drink green tea and take a short refresh break",
+          "status": "done",
+          "updatedAt": 1775802137345
+        },
+        {
+          "id": "afternoon-reset",
+          "title": "Afternoon Reset Break",
+          "type": "recovery",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "instructions": "2 min deep breathing and short walk if possible",
+          "status": "done",
+          "updatedAt": 1775802137852
+        },
+        {
+          "id": "commute-evening",
+          "title": "Commute Back Home",
+          "type": "travel",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking",
+          "status": "done",
+          "updatedAt": 1775842980157
+        },
+        {
+          "id": "evening-recovery",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:15",
+          "endTime": "18:15",
+          "instructions": "15–20 min walk, light stretching, optional shower",
+          "status": "done",
+          "updatedAt": 1775842980494
+        },
+        {
+          "id": "study-evening",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "18:15",
+          "endTime": "19:00",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "done",
+          "updatedAt": 1775842982248
+        },
+        {
+          "id": "dinner",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:30",
+          "instructions": "Eat a light and balanced dinner",
+          "status": "done",
+          "updatedAt": 1775842982545
+        },
+        {
+          "id": "turmeric-latte",
+          "title": "Turmeric Latte",
+          "type": "routine",
+          "startTime": "19:45",
+          "endTime": "20:00",
+          "instructions": "Drink turmeric latte for recovery and relaxation",
+          "status": "done",
+          "updatedAt": 1775842982891
+        },
+        {
+          "id": "wind-down",
+          "title": "No Screens + Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "instructions": "Avoid screens and start winding down",
+          "status": "done",
+          "updatedAt": 1775842983912
+        },
+        {
+          "id": "chamomile-tea",
+          "title": "Chamomile Tea",
+          "type": "routine",
+          "startTime": "20:40",
+          "endTime": "20:45",
+          "instructions": "Drink chamomile tea for relaxation",
+          "status": "done",
+          "updatedAt": 1775842984266
+        },
+        {
+          "id": "body-scan",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "instructions": "Guided body scan meditation for deep relaxation",
+          "status": "done",
+          "updatedAt": 1775842984565
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "05:00",
+          "instructions": "7–8 hours of quality sleep",
+          "status": "done",
+          "notes": "Sleep quality: 5/5",
+          "updatedAt": 1775842985819
+        }
+      ],
+      "completionPercent": 100,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-11": {
+      "date": "2026-04-11",
+      "activities": [
+        {
+          "id": "wake-wknd",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "07:00",
+          "endTime": "07:10",
+          "instructions": "Wake up naturally, drink water",
+          "status": "done",
+          "updatedAt": 1775906881090
+        },
+        {
+          "id": "warmup-wknd",
+          "title": "Light Warm-up",
+          "type": "workout",
+          "startTime": "07:10",
+          "endTime": "07:20",
+          "instructions": "Gentle stretching and mobility",
+          "status": "done",
+          "updatedAt": 1775906881556
+        },
+        {
+          "id": "workout-wknd",
+          "title": "Workout / Outdoor Activity",
+          "type": "workout",
+          "startTime": "07:20",
+          "endTime": "08:20",
+          "instructions": "Outdoor run, cycling, or gym session — go at your own pace",
+          "status": "done",
+          "updatedAt": 1775906881923
+        },
+        {
+          "id": "cooldown-wknd",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "08:20",
+          "endTime": "08:30",
+          "instructions": "Full body stretch, focus on tight areas",
+          "status": "done",
+          "updatedAt": 1775906882994
+        },
+        {
+          "id": "meditation-wknd",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "08:30",
+          "endTime": "08:45",
+          "instructions": "Longer meditation session — body scan or guided",
+          "status": "done",
+          "updatedAt": 1775906884260
+        },
+        {
+          "id": "breakfast-wknd",
+          "title": "Breakfast + Coffee",
+          "type": "routine",
+          "startTime": "08:45",
+          "endTime": "09:30",
+          "instructions": "Relaxed breakfast, no rushing",
+          "status": "done",
+          "updatedAt": 1775906885588
+        },
+        {
+          "id": "study-wknd",
+          "title": "Study / Learning",
+          "type": "study",
+          "startTime": "09:30",
+          "endTime": "11:00",
+          "instructions": "Deep study block or new skill practice",
+          "status": "done",
+          "updatedAt": 1775906886007
+        },
+        {
+          "id": "free-time-morning",
+          "title": "Free Time / Hobbies",
+          "type": "recovery",
+          "startTime": "11:00",
+          "endTime": "12:30",
+          "instructions": "Personal projects, reading, creative work, or errands",
+          "status": "done",
+          "updatedAt": 1775906886899
+        },
+        {
+          "id": "lunch-wknd",
+          "title": "Lunch",
+          "type": "routine",
+          "startTime": "12:30",
+          "endTime": "13:15",
+          "instructions": "Proper meal, eat mindfully",
+          "status": "done",
+          "updatedAt": 1775906887332
+        },
+        {
+          "id": "rest-wknd",
+          "title": "Afternoon Rest",
+          "type": "recovery",
+          "startTime": "13:15",
+          "endTime": "14:00",
+          "instructions": "Power nap or quiet time",
+          "status": "done",
+          "updatedAt": 1775906888627
+        },
+        {
+          "id": "outing-wknd",
+          "title": "Outdoor Time / Social",
+          "type": "recovery",
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "instructions": "Go outside — walk, explore, meet friends, or run errands",
+          "status": "done",
+          "updatedAt": 1775906890839
+        },
+        {
+          "id": "tea-wknd",
+          "title": "Tea + Snack",
+          "type": "routine",
+          "startTime": "16:00",
+          "endTime": "16:20",
+          "instructions": "Green tea or chai with a light snack",
+          "status": "done",
+          "updatedAt": 1775906891356
+        },
+        {
+          "id": "study-evening-wknd",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "16:30",
+          "endTime": "17:30",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "done",
+          "updatedAt": 1775906898103
+        },
+        {
+          "id": "evening-recovery-wknd",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:30",
+          "endTime": "18:30",
+          "instructions": "Walk, stretch, or light activity",
+          "status": "done",
+          "updatedAt": 1775906900324
+        },
+        {
+          "id": "dinner-wknd",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:45",
+          "instructions": "Relaxed dinner — cook something nice or eat out",
+          "status": "pending"
+        },
+        {
+          "id": "wind-down-wknd",
+          "title": "Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:45",
+          "instructions": "No screens, calm activities",
+          "status": "pending"
+        },
+        {
+          "id": "body-scan-wknd",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "21:00",
+          "instructions": "Guided body scan for deep relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "sleep-wknd",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "07:00",
+          "instructions": "8+ hours of quality sleep",
+          "status": "pending"
+        }
+      ],
+      "completionPercent": 78,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-12": {
+      "date": "2026-04-12",
+      "activities": [
+        {
+          "id": "wake-wknd",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "07:00",
+          "endTime": "07:10",
+          "instructions": "Wake up naturally, drink water",
+          "status": "done",
+          "updatedAt": 1775960348972
+        },
+        {
+          "id": "warmup-wknd",
+          "title": "Light Warm-up",
+          "type": "workout",
+          "startTime": "07:10",
+          "endTime": "07:20",
+          "instructions": "Gentle stretching and mobility",
+          "status": "done",
+          "updatedAt": 1775960349648
+        },
+        {
+          "id": "workout-wknd",
+          "title": "Workout / Outdoor Activity",
+          "type": "workout",
+          "startTime": "07:20",
+          "endTime": "08:20",
+          "instructions": "Outdoor run, cycling, or gym session — go at your own pace",
+          "status": "done",
+          "updatedAt": 1775960803277
+        },
+        {
+          "id": "cooldown-wknd",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "08:20",
+          "endTime": "08:30",
+          "instructions": "Full body stretch, focus on tight areas",
+          "status": "pending"
+        },
+        {
+          "id": "meditation-wknd",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "08:30",
+          "endTime": "08:45",
+          "instructions": "Longer meditation session — body scan or guided",
+          "status": "pending"
+        },
+        {
+          "id": "breakfast-wknd",
+          "title": "Breakfast + Coffee",
+          "type": "routine",
+          "startTime": "08:45",
+          "endTime": "09:30",
+          "instructions": "Relaxed breakfast, no rushing",
+          "status": "pending"
+        },
+        {
+          "id": "study-wknd",
+          "title": "Study / Learning",
+          "type": "study",
+          "startTime": "09:30",
+          "endTime": "11:00",
+          "instructions": "Deep study block or new skill practice",
+          "status": "pending"
+        },
+        {
+          "id": "free-time-morning",
+          "title": "Free Time / Hobbies",
+          "type": "recovery",
+          "startTime": "11:00",
+          "endTime": "12:30",
+          "instructions": "Personal projects, reading, creative work, or errands",
+          "status": "pending"
+        },
+        {
+          "id": "lunch-wknd",
+          "title": "Lunch",
+          "type": "routine",
+          "startTime": "12:30",
+          "endTime": "13:15",
+          "instructions": "Proper meal, eat mindfully",
+          "status": "pending"
+        },
+        {
+          "id": "rest-wknd",
+          "title": "Afternoon Rest",
+          "type": "recovery",
+          "startTime": "13:15",
+          "endTime": "14:00",
+          "instructions": "Power nap or quiet time",
+          "status": "pending"
+        },
+        {
+          "id": "outing-wknd",
+          "title": "Outdoor Time / Social",
+          "type": "recovery",
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "instructions": "Go outside — walk, explore, meet friends, or run errands",
+          "status": "pending"
+        },
+        {
+          "id": "tea-wknd",
+          "title": "Tea + Snack",
+          "type": "routine",
+          "startTime": "16:00",
+          "endTime": "16:20",
+          "instructions": "Green tea or chai with a light snack",
+          "status": "pending"
+        },
+        {
+          "id": "study-evening-wknd",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "16:30",
+          "endTime": "17:30",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "pending"
+        },
+        {
+          "id": "evening-recovery-wknd",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:30",
+          "endTime": "18:30",
+          "instructions": "Walk, stretch, or light activity",
+          "status": "pending"
+        },
+        {
+          "id": "dinner-wknd",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:45",
+          "instructions": "Relaxed dinner — cook something nice or eat out",
+          "status": "pending"
+        },
+        {
+          "id": "wind-down-wknd",
+          "title": "Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:45",
+          "instructions": "No screens, calm activities",
+          "status": "pending"
+        },
+        {
+          "id": "body-scan-wknd",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "21:00",
+          "instructions": "Guided body scan for deep relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "sleep-wknd",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "07:00",
+          "instructions": "8+ hours of quality sleep",
+          "status": "pending"
+        }
+      ],
+      "completionPercent": 17,
+      "scheduleModified": false,
+      "lastSyncedAt": 1776162486160
+    },
+    "2026-04-13": {
+      "date": "2026-04-13",
+      "activities": [
+        {
+          "id": "wake",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "05:00",
+          "endTime": "05:10",
+          "instructions": "Wake up and drink 1-2 glasses of water",
+          "status": "done",
+          "updatedAt": 1776070766691
+        },
+        {
+          "id": "warmup",
+          "title": "Warm-up",
+          "type": "workout",
+          "startTime": "05:10",
+          "endTime": "05:20",
+          "instructions": "Neck rolls, shoulder rotations, light mobility exercises",
+          "status": "done",
+          "updatedAt": 1776070767262
+        },
+        {
+          "id": "workout",
+          "title": "Workout",
+          "type": "workout",
+          "startTime": "05:20",
+          "endTime": "06:20",
+          "instructions": "Resistance band and bodyweight training. Maintain proper breathing, avoid neck strain",
+          "status": "pending",
+          "updatedAt": 1776070769152
+        },
+        {
+          "id": "cooldown",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "06:20",
+          "endTime": "06:30",
+          "instructions": "Stretch neck, shoulders, and upper back. Slow breathing",
+          "status": "pending",
+          "updatedAt": 1776070771703
+        },
+        {
+          "id": "meditation",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "06:30",
+          "endTime": "06:40",
+          "instructions": "Breathing meditation using guided audio",
+          "status": "pending",
+          "updatedAt": 1776070773187
+        },
+        {
+          "id": "sunlight",
+          "title": "Sunlight Exposure",
+          "type": "routine",
+          "startTime": "06:45",
+          "endTime": "07:00",
+          "instructions": "Get 10-15 minutes of sunlight exposure",
+          "status": "done",
+          "updatedAt": 1776070770919
+        },
+        {
+          "id": "study",
+          "title": "Study Session (Deep Work)",
+          "type": "study",
+          "startTime": "07:00",
+          "endTime": "08:15",
+          "instructions": "2 × 30 min focus blocks with 5 min break. No phone, no distractions",
+          "status": "done",
+          "updatedAt": 1776070774826
+        },
+        {
+          "id": "breakfast",
+          "title": "Breakfast + Coffee + Get Ready",
+          "type": "routine",
+          "startTime": "08:15",
+          "endTime": "09:15",
+          "instructions": "Eat breakfast, have coffee, and get ready calmly without rushing",
+          "status": "pending"
+        },
+        {
+          "id": "commute-morning",
+          "title": "Commute to Office",
+          "type": "travel",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "instructions": "Listen to educational audio or podcasts, or relax mind. Avoid random scrolling and stress thinking",
+          "status": "pending"
+        },
+        {
+          "id": "office-work",
+          "title": "Office Work (Focused Work)",
+          "type": "work",
+          "startTime": "11:00",
+          "endTime": "16:00",
+          "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours",
+          "status": "done",
+          "updatedAt": 1776088814295
+        },
+        {
+          "id": "green-tea",
+          "title": "Green Tea Break",
+          "type": "routine",
+          "startTime": "11:30",
+          "endTime": "11:40",
+          "instructions": "Drink green tea and take a short refresh break",
+          "status": "done",
+          "updatedAt": 1776088816555
+        },
+        {
+          "id": "afternoon-reset",
+          "title": "Afternoon Reset Break",
+          "type": "recovery",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "instructions": "2 min deep breathing and short walk if possible",
+          "status": "done",
+          "updatedAt": 1776088818567
+        },
+        {
+          "id": "commute-evening",
+          "title": "Commute Back Home",
+          "type": "travel",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking",
+          "status": "done",
+          "updatedAt": 1776088824082
+        },
+        {
+          "id": "evening-recovery",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:15",
+          "endTime": "18:15",
+          "instructions": "15–20 min walk, light stretching, optional shower",
+          "status": "done",
+          "updatedAt": 1776088828505
+        },
+        {
+          "id": "study-evening",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "18:15",
+          "endTime": "19:00",
+          "instructions": "Light revision or practice. Skip if mentally tired",
+          "status": "done",
+          "updatedAt": 1776088829133
+        },
+        {
+          "id": "dinner",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:30",
+          "instructions": "Eat a light and balanced dinner",
+          "status": "pending"
+        },
+        {
+          "id": "turmeric-latte",
+          "title": "Turmeric Latte",
+          "type": "routine",
+          "startTime": "19:45",
+          "endTime": "20:00",
+          "instructions": "Drink turmeric latte for recovery and relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "wind-down",
+          "title": "No Screens + Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "instructions": "Avoid screens and start winding down",
+          "status": "pending",
+          "updatedAt": 1776088833186
+        },
+        {
+          "id": "chamomile-tea",
+          "title": "Chamomile Tea",
+          "type": "routine",
+          "startTime": "20:40",
+          "endTime": "20:45",
+          "instructions": "Drink chamomile tea for relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "body-scan",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "instructions": "Guided body scan meditation for deep relaxation",
+          "status": "pending"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "05:00",
+          "instructions": "7–8 hours of quality sleep",
+          "status": "pending",
+          "notes": "Sleep quality: 5/5",
+          "updatedAt": 1776070763138
+        }
+      ],
       "completionPercent": 48,
       "scheduleModified": false,
-      "lastSyncedAt": 1775455418600
+      "lastSyncedAt": 1776162486160
     }
   },
   "settings": {
     "pomodoroWork": 25,
-    "pomodoroBreak": 5,
+    "pomodoroBreak": 28,
     "checkpointInterval": 51,
     "maxScheduleShift": 30,
     "rewards": {
@@ -1134,8 +2777,343 @@
     },
     "notificationsEnabled": true,
     "vibrationEnabled": true,
-    "updatedAt": 1775177077884,
+    "updatedAt": 1775468661481,
     "soundEnabled": false
   },
-  "scheduleVersion": 2
+  "scheduleVersion": 3,
+  "scheduleTemplates": [
+    {
+      "id": "weekday",
+      "name": "Weekday",
+      "activities": [
+        {
+          "id": "wake",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "05:00",
+          "endTime": "05:10",
+          "instructions": "Wake up and drink 1-2 glasses of water"
+        },
+        {
+          "id": "warmup",
+          "title": "Warm-up",
+          "type": "workout",
+          "startTime": "05:10",
+          "endTime": "05:20",
+          "instructions": "Neck rolls, shoulder rotations, light mobility exercises"
+        },
+        {
+          "id": "workout",
+          "title": "Workout",
+          "type": "workout",
+          "startTime": "05:20",
+          "endTime": "06:20",
+          "instructions": "Resistance band and bodyweight training. Maintain proper breathing, avoid neck strain"
+        },
+        {
+          "id": "cooldown",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "06:20",
+          "endTime": "06:30",
+          "instructions": "Stretch neck, shoulders, and upper back. Slow breathing"
+        },
+        {
+          "id": "meditation",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "06:30",
+          "endTime": "06:40",
+          "instructions": "Breathing meditation using guided audio"
+        },
+        {
+          "id": "sunlight",
+          "title": "Sunlight Exposure",
+          "type": "routine",
+          "startTime": "06:45",
+          "endTime": "07:00",
+          "instructions": "Get 10-15 minutes of sunlight exposure"
+        },
+        {
+          "id": "study",
+          "title": "Study Session (Deep Work)",
+          "type": "study",
+          "startTime": "07:00",
+          "endTime": "08:15",
+          "instructions": "2 × 30 min focus blocks with 5 min break. No phone, no distractions"
+        },
+        {
+          "id": "breakfast",
+          "title": "Breakfast + Coffee + Get Ready",
+          "type": "routine",
+          "startTime": "08:15",
+          "endTime": "09:15",
+          "instructions": "Eat breakfast, have coffee, and get ready calmly without rushing"
+        },
+        {
+          "id": "commute-morning",
+          "title": "Commute to Office",
+          "type": "travel",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "instructions": "Listen to educational audio or podcasts, or relax mind. Avoid random scrolling and stress thinking"
+        },
+        {
+          "id": "office-work",
+          "title": "Office Work (Focused Work)",
+          "type": "work",
+          "startTime": "11:00",
+          "endTime": "16:00",
+          "instructions": "Work in 45–60 min blocks with 3–5 min breaks. Follow 20-20-20 rule and stretch neck every 1–2 hours"
+        },
+        {
+          "id": "green-tea",
+          "title": "Green Tea Break",
+          "type": "routine",
+          "startTime": "11:30",
+          "endTime": "11:40",
+          "instructions": "Drink green tea and take a short refresh break"
+        },
+        {
+          "id": "afternoon-reset",
+          "title": "Afternoon Reset Break",
+          "type": "recovery",
+          "startTime": "14:30",
+          "endTime": "15:00",
+          "instructions": "2 min deep breathing and short walk if possible"
+        },
+        {
+          "id": "commute-evening",
+          "title": "Commute Back Home",
+          "type": "travel",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "instructions": "Listen to calm music, light podcast, or stay silent. Avoid work thinking"
+        },
+        {
+          "id": "evening-recovery",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:15",
+          "endTime": "18:15",
+          "instructions": "15–20 min walk, light stretching, optional shower"
+        },
+        {
+          "id": "study-evening",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "18:15",
+          "endTime": "19:00",
+          "instructions": "Light revision or practice. Skip if mentally tired"
+        },
+        {
+          "id": "dinner",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:30",
+          "instructions": "Eat a light and balanced dinner"
+        },
+        {
+          "id": "turmeric-latte",
+          "title": "Turmeric Latte",
+          "type": "routine",
+          "startTime": "19:45",
+          "endTime": "20:00",
+          "instructions": "Drink turmeric latte for recovery and relaxation"
+        },
+        {
+          "id": "wind-down",
+          "title": "No Screens + Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "instructions": "Avoid screens and start winding down"
+        },
+        {
+          "id": "chamomile-tea",
+          "title": "Chamomile Tea",
+          "type": "routine",
+          "startTime": "20:40",
+          "endTime": "20:45",
+          "instructions": "Drink chamomile tea for relaxation"
+        },
+        {
+          "id": "body-scan",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "instructions": "Guided body scan meditation for deep relaxation"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "05:00",
+          "instructions": "7–8 hours of quality sleep"
+        }
+      ]
+    },
+    {
+      "id": "weekend",
+      "name": "Weekend",
+      "activities": [
+        {
+          "id": "wake-wknd",
+          "title": "Wake + Hydration",
+          "type": "routine",
+          "startTime": "07:00",
+          "endTime": "07:10",
+          "instructions": "Wake up naturally, drink water"
+        },
+        {
+          "id": "warmup-wknd",
+          "title": "Light Warm-up",
+          "type": "workout",
+          "startTime": "07:10",
+          "endTime": "07:20",
+          "instructions": "Gentle stretching and mobility"
+        },
+        {
+          "id": "workout-wknd",
+          "title": "Workout / Outdoor Activity",
+          "type": "workout",
+          "startTime": "07:20",
+          "endTime": "08:20",
+          "instructions": "Outdoor run, cycling, or gym session — go at your own pace"
+        },
+        {
+          "id": "cooldown-wknd",
+          "title": "Cool Down + Stretch",
+          "type": "workout",
+          "startTime": "08:20",
+          "endTime": "08:30",
+          "instructions": "Full body stretch, focus on tight areas"
+        },
+        {
+          "id": "meditation-wknd",
+          "title": "Meditation",
+          "type": "meditation",
+          "startTime": "08:30",
+          "endTime": "08:45",
+          "instructions": "Longer meditation session — body scan or guided"
+        },
+        {
+          "id": "breakfast-wknd",
+          "title": "Breakfast + Coffee",
+          "type": "routine",
+          "startTime": "08:45",
+          "endTime": "09:30",
+          "instructions": "Relaxed breakfast, no rushing"
+        },
+        {
+          "id": "study-wknd",
+          "title": "Study / Learning",
+          "type": "study",
+          "startTime": "09:30",
+          "endTime": "11:00",
+          "instructions": "Deep study block or new skill practice"
+        },
+        {
+          "id": "free-time-morning",
+          "title": "Free Time / Hobbies",
+          "type": "recovery",
+          "startTime": "11:00",
+          "endTime": "12:30",
+          "instructions": "Personal projects, reading, creative work, or errands"
+        },
+        {
+          "id": "lunch-wknd",
+          "title": "Lunch",
+          "type": "routine",
+          "startTime": "12:30",
+          "endTime": "13:15",
+          "instructions": "Proper meal, eat mindfully"
+        },
+        {
+          "id": "rest-wknd",
+          "title": "Afternoon Rest",
+          "type": "recovery",
+          "startTime": "13:15",
+          "endTime": "14:00",
+          "instructions": "Power nap or quiet time"
+        },
+        {
+          "id": "outing-wknd",
+          "title": "Outdoor Time / Social",
+          "type": "recovery",
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "instructions": "Go outside — walk, explore, meet friends, or run errands"
+        },
+        {
+          "id": "tea-wknd",
+          "title": "Tea + Snack",
+          "type": "routine",
+          "startTime": "16:00",
+          "endTime": "16:20",
+          "instructions": "Green tea or chai with a light snack"
+        },
+        {
+          "id": "study-evening-wknd",
+          "title": "Optional Study (Light)",
+          "type": "study",
+          "startTime": "16:30",
+          "endTime": "17:30",
+          "instructions": "Light revision or practice. Skip if mentally tired"
+        },
+        {
+          "id": "evening-recovery-wknd",
+          "title": "Evening Recovery",
+          "type": "recovery",
+          "startTime": "17:30",
+          "endTime": "18:30",
+          "instructions": "Walk, stretch, or light activity"
+        },
+        {
+          "id": "dinner-wknd",
+          "title": "Dinner",
+          "type": "routine",
+          "startTime": "19:00",
+          "endTime": "19:45",
+          "instructions": "Relaxed dinner — cook something nice or eat out"
+        },
+        {
+          "id": "wind-down-wknd",
+          "title": "Wind Down",
+          "type": "recovery",
+          "startTime": "20:30",
+          "endTime": "20:45",
+          "instructions": "No screens, calm activities"
+        },
+        {
+          "id": "body-scan-wknd",
+          "title": "Body Scan Meditation",
+          "type": "meditation",
+          "startTime": "20:45",
+          "endTime": "21:00",
+          "instructions": "Guided body scan for deep relaxation"
+        },
+        {
+          "id": "sleep-wknd",
+          "title": "Sleep",
+          "type": "sleep",
+          "startTime": "21:30",
+          "endTime": "07:00",
+          "instructions": "8+ hours of quality sleep"
+        }
+      ]
+    }
+  ],
+  "dayTemplateMap": {
+    "0": "weekend",
+    "1": "weekday",
+    "2": "weekday",
+    "3": "weekday",
+    "4": "weekday",
+    "5": "weekday",
+    "6": "weekend"
+  }
 }

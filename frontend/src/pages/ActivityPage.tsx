@@ -2,6 +2,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Circle, Timer, StickyNote, Play, Square, SkipForward } from 'lucide-react';
 import { useActivityStore } from '../store/activityStore';
 import MeditationPlayer from '../components/MeditationPlayer';
+import FamilyModule from '../components/FamilyModule';
+import TravelModule from '../components/TravelModule';
+import ExerciseGuide from '../components/ExerciseGuide';
 import { useState } from 'react';
 
 export default function ActivityPage() {
@@ -188,6 +191,34 @@ export default function ActivityPage() {
             </button>
           ))}
         </div>
+      )}
+
+      {/* Exercise guides for workout activities */}
+      {activity.type === 'workout' && (
+        <div className="card space-y-3">
+          <h3 className="font-semibold text-sm text-white/60 uppercase tracking-wider">
+            Exercise Guide
+          </h3>
+          <ExerciseGuide
+            categories={
+              activity.title.toLowerCase().includes('warm')
+                ? ['warmup']
+                : activity.title.toLowerCase().includes('cool') || activity.title.toLowerCase().includes('stretch')
+                ? ['stretch', 'cooldown']
+                : ['strength', 'posture']
+            }
+          />
+        </div>
+      )}
+
+      {/* Family time module */}
+      {activity.type === 'family' && (
+        <FamilyModule activity={activity} />
+      )}
+
+      {/* Travel mode module */}
+      {activity.type === 'travel' && (
+        <TravelModule activity={activity} />
       )}
 
       {/* Meditation player */}

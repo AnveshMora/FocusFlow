@@ -12,7 +12,7 @@ export function useSync() {
   const isSyncingRef = useRef(false);
   const skipNextSubRef = useRef(false);
 
-  const applyMerged = useCallback((merged: { days?: unknown; settings?: unknown; scheduleVersion?: unknown }) => {
+  const applyMerged = useCallback((merged: { days?: unknown; settings?: unknown; scheduleVersion?: unknown; scheduleTemplates?: unknown; dayTemplateMap?: unknown }) => {
     const state = useActivityStore.getState();
     skipNextSubRef.current = true;
 
@@ -30,6 +30,12 @@ export function useSync() {
       days: (merged.days ?? state.days) as typeof state.days,
       settings: newSettings,
       scheduleVersion: (merged.scheduleVersion as number) ?? state.scheduleVersion,
+      ...(Array.isArray(merged.scheduleTemplates) && merged.scheduleTemplates.length > 0
+        ? { scheduleTemplates: merged.scheduleTemplates as typeof state.scheduleTemplates }
+        : {}),
+      ...(merged.dayTemplateMap && Object.keys(merged.dayTemplateMap as object).length > 0
+        ? { dayTemplateMap: merged.dayTemplateMap as typeof state.dayTemplateMap }
+        : {}),
     });
   }, []);
 
@@ -51,6 +57,8 @@ export function useSync() {
         days: state.days,
         settings: state.settings,
         scheduleVersion: state.scheduleVersion,
+        scheduleTemplates: state.scheduleTemplates,
+        dayTemplateMap: state.dayTemplateMap,
       };
 
       const merged = await syncMerge(payload);

@@ -30,6 +30,8 @@ interface SyncState {
   days: Record<string, DayLog>;
   settings?: Record<string, unknown>;
   scheduleVersion?: number;
+  scheduleTemplates?: unknown[];
+  dayTemplateMap?: Record<number, string>;
 }
 
 export function readState(): SyncState {
@@ -64,6 +66,15 @@ export function mergeStates(server: SyncState, client: SyncState): SyncState {
     ? (client.settings ?? server.settings)
     : (server.settings ?? client.settings);
 
+  // Pick templates with the later updatedAt (or take client if newer)
+  const serverTemplates = (server.scheduleTemplates ?? []) as any[];
+  const clientTemplates = (client.scheduleTemplates ?? []) as any[];
+  const mergedTemplates = clientTemplates.length > 0
+    ? (clientTemplates[0]?.updatedAt ?? 0) >= (serverTemplates[0]?.updatedAt ?? 0)
+      ? clientTemplates
+      : serverTemplates
+    : serverTemplates;
+
   const merged: SyncState = {
     days: { ...server.days },
     settings: mergedSettings,
@@ -71,6 +82,10 @@ export function mergeStates(server: SyncState, client: SyncState): SyncState {
       server.scheduleVersion ?? 0,
       client.scheduleVersion ?? 0
     ),
+    scheduleTemplates: mergedTemplates.length > 0 ? mergedTemplates : server.scheduleTemplates,
+    dayTemplateMap: Object.keys(client.dayTemplateMap ?? {}).length > 0
+      ? client.dayTemplateMap
+      : server.dayTemplateMap,
   };
 
   for (const [dateKey, clientDay] of Object.entries(client.days)) {

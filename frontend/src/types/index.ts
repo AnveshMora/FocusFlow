@@ -1,4 +1,4 @@
-export type ActivityType = 'workout' | 'meditation' | 'study' | 'work' | 'recovery' | 'sleep' | 'travel' | 'routine' | 'custom';
+export type ActivityType = 'workout' | 'meditation' | 'study' | 'work' | 'recovery' | 'sleep' | 'travel' | 'routine' | 'family' | 'custom';
 export type ActivityStatus = 'pending' | 'active' | 'done' | 'skipped' | 'missed';
 
 export interface ActivityChecklist {
@@ -18,7 +18,30 @@ export interface Activity {
   notes?: string;
   checklist?: ActivityChecklist[];
   updatedAt?: number; // epoch ms — used for sync conflict resolution
+  familyLog?: { rating: number; tags: string[] };
+  travelLog?: { mode: string; title: string; duration?: number };
 }
+
+// Template activity — no runtime state (status/notes), just the schedule definition
+export interface TemplateActivity {
+  id: string;
+  title: string;
+  type: ActivityType;
+  startTime: string;
+  endTime: string;
+  instructions?: string;
+  checklist?: { id: string; label: string }[];
+}
+
+export interface ScheduleTemplate {
+  id: string;
+  name: string;
+  activities: TemplateActivity[];
+  updatedAt?: number;
+}
+
+// Maps day-of-week (0=Sun..6=Sat) to template id
+export type DayTemplateMap = Record<number, string>;
 
 export interface DayLog {
   date: string; // YYYY-MM-DD

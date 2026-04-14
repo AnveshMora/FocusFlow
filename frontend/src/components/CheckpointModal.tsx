@@ -134,10 +134,11 @@ export default function CheckpointModal() {
       const time = nowTimeStr();
       const trackers = trackersRef.current;
 
-      // Find the current in-window activity (active or pending)
+      // Find the current in-window activity (active or pending, skip family)
       const active = activities.find(
         (a) =>
           (a.status === 'active' || a.status === 'pending') &&
+          a.type !== 'family' &&
           a.startTime <= time &&
           a.endTime >= time
       );
@@ -208,6 +209,7 @@ export default function CheckpointModal() {
     const active = activities.find(
       (a) =>
         (a.status === 'active' || a.status === 'pending') &&
+        a.type !== 'family' &&
         a.startTime <= time &&
         a.endTime >= time
     );
